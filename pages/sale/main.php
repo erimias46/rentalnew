@@ -137,18 +137,8 @@ $current_date = date('Y-m-d');
 
                                     $sql = "SELECT 'shoes' AS source, sales_id, shoes_name AS Name, sales_date, price, size,cash,bank,method
 FROM shoes_sales Where sales_date = '$current_date'
-UNION ALL
-SELECT 'top' AS source, sales_id, top_name AS Name, sales_date, price, size,cash,bank,method
-FROM top_sales Where sales_date = '$current_date'
-UNION ALL
-SELECT 'complete' AS source, sales_id, complete_name AS Name, sales_date, price, size,cash,bank,method
-FROM complete_sales    Where sales_date = '$current_date'
-UNION ALL
-SELECT 'accessory' AS source, sales_id, accessory_name AS Name, sales_date, price, size,cash,bank,method
-FROM accessory_sales Where sales_date = '$current_date'
-UNION ALL
-SELECT 'jeans' AS source, sales_id, jeans_name AS Name, sales_date, price, size,cash,bank,method
-FROM sales  Where sales_date = '$current_date'
+
+
 ";
                                     $result = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_array($result)) {
@@ -194,82 +184,8 @@ FROM sales  Where sales_date = '$current_date'
                                 <?php
 
 
-                                $current_date = date('Y-m-d');
-
-                                $array =
-                                    $sql = "SELECT SUM(price) AS total_price, SUM(cash) AS total_cash, SUM(bank) AS total_bank FROM sales WHERE sales_date = '$current_date'";
-
-                                $result = mysqli_query($con, $sql);
-                                $row = mysqli_fetch_array($result);
-                                $total_price = $row['total_price'];
-                                $total_cash = $row['total_cash'];
-                                $total_bank = $row['total_bank'];
-
-
-                                // Example date, set this dynamically as needed
-
-                                $sql2 = "
-SELECT 
-    'total' AS source,
-    SUM(total_sales) AS total_sales,
-    SUM(total_price) AS total_price,
-    SUM(total_cash) AS total_cash,
-    SUM(total_bank) AS total_bank
-FROM (
-    SELECT 
-        COUNT(sales_id) AS total_sales,
-        SUM(price) AS total_price,
-        SUM(cash) AS total_cash,
-        SUM(bank) AS total_bank
-    FROM shoes_sales
-    WHERE sales_date = '$current_date'
-
-    UNION ALL
-
-    SELECT 
-        COUNT(sales_id),
-        SUM(price),
-        SUM(cash),
-        SUM(bank)
-    FROM top_sales
-    WHERE sales_date = '$current_date'
-
-    UNION ALL
-
-    SELECT 
-        COUNT(sales_id),
-        SUM(price),
-        SUM(cash),
-        SUM(bank)
-    FROM complete_sales
-    WHERE sales_date = '$current_date'
-
-    UNION ALL
-
-    SELECT 
-        COUNT(sales_id),
-        SUM(price),
-        SUM(cash),
-        SUM(bank)
-    FROM accessory_sales
-    WHERE sales_date = '$current_date'
-
-    UNION ALL
-
-    SELECT 
-        COUNT(sales_id),
-        SUM(price),
-        SUM(cash),
-        SUM(bank)
-    FROM sales
-    WHERE sales_date = '$current_date'
-) AS all_sales";
-                                $result2 = mysqli_query($con, $sql2);
-                                $row2 = mysqli_fetch_array($result2);
-                                $total_price2 = $row2['total_price'];
-                                $total_cash2 = $row2['total_cash'];
-                                $total_bank2 = $row2['total_bank'];
-                                $total_sales2 = $row2['total_sales'];
+                                
+                               
 
 
                                 ?>
@@ -279,7 +195,7 @@ FROM (
                                     <?php echo isset($total_price2) ? $total_price2 : 0; ?>
                                 </div>
                                 <div class="text-gray-500 text-sm">Daily Sales Amount</div>
-                                <div class="mt-4 text-2xl font-bold"><?php echo  $total_sales2 ?></div>
+                                <div class="mt-4 text-2xl font-bold"></div>
                                 <div class="text-gray-500 text-sm">Number of Sales</div>
                             </div>
 

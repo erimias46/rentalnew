@@ -409,6 +409,15 @@ if ($result) {
                     </div>
 
                     <div class="card col-span-1 bg-white shadow-md rounded-md p-6 mx-lg max-w-lg">
+                    <div class="mb-3">
+                            <label class="text-gray-800 text-sm font-medium inline-block mb-2">Customer Name</label>
+                            <input type="text"  name="customer_name" class="form-input w-full border border-gray-300 p-2 rounded-md" placeholder="Full Name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-gray-800 text-sm font-medium inline-block mb-2">Phone Number</label>
+                            <input type="phone"  class="form-input w-full border border-gray-300 p-2 rounded-md" placeholder="+251">
+                        </div>
+
 
 
 
@@ -417,9 +426,9 @@ if ($result) {
 
 
                         <!-- Bank Name Field -->
-                        <div id="bankNameDiv">
+                        <div id="bankNameDiv" class="mb-3">
                             <label class="text-gray-800 text-sm font-medium inline-block mb-2">Bank Name</label>
-                            <select name="bank_name" id="bankNameInput" class="selectize">
+                            <select name="bank_name" id="bankNameInput" class="form-select w-full border border-gray-300 p-2 rounded-md">
                                 <option value="">Select</option>
                                 <?php
                                 $sql5 = "SELECT * FROM bankdb";
@@ -439,8 +448,8 @@ if ($result) {
                         <div class="mb-3">
                             <label class="text-gray-800 text-sm font-medium inline-block mb-2" for="method">Method</label>
                             <select name="method" id="method" class="form-select w-full border border-gray-300 p-2 rounded-md" required onchange="toggleReasonField()">
-                                <option value="shop">Shop</option>
-                                <option value="delivery">Delivery</option>
+                                <option value="straight">Straight </option>
+                                <option value="book">Book</option>
                             </select>
                         </div>
 
@@ -449,6 +458,7 @@ if ($result) {
                             <label class="text-gray-800 text-sm font-medium inline-block mb-2" for="reason">Reason</label>
                             <input type="text" name="reason" id="reason" class="form-input w-full border border-gray-300 p-2 rounded-md" placeholder="Please provide a reason">
                         </div>
+                        
 
                         <script>
                             function toggleReasonField() {
@@ -464,6 +474,16 @@ if ($result) {
                             }
                         </script>
 
+
+<div class="mb-3">
+                            <label class="text-gray-800 text-sm font-medium inline-block mb-2">From Date</label>
+                            <input type="date" name="from_date"  class="form-input w-full border border-gray-300 p-2 rounded-md" value="2024-01-01">
+                        </div>
+                        <div class="mb-3">
+                            <label class="text-gray-800 text-sm font-medium inline-block mb-2">To Date</label>
+                            <input type="date" name="to_date"  class="form-input w-full border border-gray-300 p-2 rounded-md" value="2024-01-01">
+                        </div>
+
                         <!-- Total Price Display -->
                         <div class="mb-3">
                             <label class="text-gray-800 text-sm font-medium inline-block mb-2">Total Price</label>
@@ -472,8 +492,8 @@ if ($result) {
 
                         <div class="text-center mt-5">
                             <?php if ($add_button) : ?>
-                                <button name="add" type="submit" class="btn bg-green-500 text-white px-4 py-2 rounded-md">
-                                    Sale
+                                <button name="add" type="submit" class="btn bg-green-500 text-white px-10 py-2  rounded-md">
+                                    Rent
                                 </button>
                             <?php endif; ?>
                         </div>

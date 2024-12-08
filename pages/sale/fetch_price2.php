@@ -19,7 +19,7 @@ $code_name = mysqli_real_escape_string($con, $_POST['code_name']);
 $response = array();
 
 // Validate table name to prevent SQL injection
-$allowed_tables = ['jeans', 'shoes', 'complete', 'accessory', 'top'];
+$allowed_tables = ['dress'];
 if (!in_array($table, $allowed_tables)) {
     $response['error'] = 'Invalid table name';
     echo json_encode($response);

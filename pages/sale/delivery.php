@@ -6,7 +6,7 @@ include_once $redirect_link . 'include/db.php';
 include_once $redirect_link . 'include/bot.php';
 include_once $redirect_link . 'include/email.php';
 $current_date = date('Y-m-d');
-$title = "Delivery";
+$title = "Booking";
 ?>
 
 <head>
@@ -65,7 +65,7 @@ if ($result) {
                 <div class="card">
                     <div class="card mt-3">
                         <div class="p-6">
-                            <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 text-center">Delivery</h2>
+                            <h2 class="text-lg font-semibold text-gray-700 dark:text-gray-200 text-center">Booking</h2>
                             <div class="overflow-x-auto">
                                 <div class="min-w-full inline-block align-middle">
                                     <div class="overflow-hidden">
@@ -74,7 +74,7 @@ if ($result) {
                                             <thead>
                                                 <tr>
                                                     <th class="p-2.5 text-left text-xs font-medium text-gray-500 uppercase">#</th>
-                                                    <th class="p-2.5 text-left text-xs font-medium text-gray-500 uppercase">Product Name</th>
+                                                    <th class="p-2.5 text-left text-xs font-medium text-gray-500 uppercase">Dress Name</th>
                                                     <th class="p-2.5 text-left text-xs font-medium text-gray-500 uppercase">Size</th>
                                                     <th class="p-2.5 text-left text-xs font-medium text-gray-500 uppercase">Price</th>
 
@@ -107,42 +107,20 @@ if ($result) {
 
 
 
-                                                $sql = "
-SELECT 'shoes' AS source, sales_id, shoes_name AS Name, sales_date, price, size,verifiy,created_at,reason
-FROM shoes_delivery where verifiy = 0
-UNION ALL
-SELECT 'top' AS source, sales_id, top_name AS Name, sales_date, price, size,verifiy,created_at,reason
-FROM top_delivery where verifiy = 0
-UNION ALL
-SELECT 'complete' AS source, sales_id, complete_name AS Name, sales_date, price, size,verifiy,created_at,reason
-FROM complete_delivery where verifiy = 0
-UNION ALL
-SELECT 'accessory' AS source, sales_id, accessory_name AS Name, sales_date, price, size,verifiy,created_at,reason
-FROM accessory_delivery where verifiy = 0
-UNION ALL
-SELECT 'jeans' AS source, sales_id, jeans_name AS Name, sales_date, price, size,verifiy,created_at,reason
-FROM delivery where verifiy = 0
-ORDER BY created_at DESC;
-";
+                                                $sql = " SELECT * from bookings";
 
 
                                                 $result22 = mysqli_query($con, $sql);
                                                 $num = 1;
                                                 while ($row = mysqli_fetch_assoc($result22)) {
 
+                                                    $dress_id=$row=["dress_id"];
+                                                    $sql2="SELECT * from dress where id= '$dress_id';
+                                                    $result=
 
-                                                    $currentDate = $row['reason'];
 
-                                                    // Check if the current row's date matches the previous row's date
-                                                    if ($currentDate != $prevDate) {
-                                                        $currentColorIndex = ($currentColorIndex + 1) % count($colors); // Cycle through colors
-                                                    }
-                                                    $dateTextColor = $colors[$currentColorIndex]; // Assign the text color based on the index
 
-                                                    // Update previous date tracker
-                                                    $prevDate = $currentDate;
-
-                                                    $type = $row['source'];
+                                                  
 
                                                 ?>
                                                     <tr class="odd:bg-white even:bg-gray-100 dark:odd:bg-slate-700 dark:even:bg-slate-800 cursor-pointer">
