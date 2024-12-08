@@ -216,7 +216,7 @@ if ($result) {
                         <?php if ($fullsale) : ?>
                             <li class="menu-item">
                                 <a href="<?php echo $redirect_link ?>pages/sale/multi.php" class="menu-link">
-                                    <span class="menu-text">Sale</span>
+                                    <span class="menu-text">Rent</span>
                                 </a>
                             </li>
                         <?php endif; ?>
@@ -224,14 +224,14 @@ if ($result) {
                         <?php if ($allsale) : ?>
                             <li class="menu-item">
                                 <a href="<?php echo $redirect_link ?>pages/sale/all_sales.php" class="menu-link">
-                                    <span class="menu-text">All Sales</span>
+                                    <span class="menu-text">All Rent  </span>
                                 </a>
                             </li>
                         <?php endif; ?>
                         <?php if ($logsale) : ?>
                             <li class="menu-item">
                                 <a href="<?php echo $redirect_link ?>pages/sale/sale_log.php" class="menu-link">
-                                    <span class="menu-text">All Sales Log</span>
+                                    <span class="menu-text">All Rent Log</span>
                                 </a>
                             </li>
                         <?php endif; ?>
@@ -247,7 +247,7 @@ if ($result) {
                         <?php if ($deliverysale) : ?>
                             <li class="menu-item">
                                 <a href="<?php echo $redirect_link ?>pages/sale/delivery.php" class="menu-link">
-                                    <span class="menu-text">Delivery</span>
+                                    <span class="menu-text">Booking </span>
                                 </a>
                             </li>
                         <?php endif; ?>
